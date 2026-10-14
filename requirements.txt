@@ -1,0 +1,24 @@
+# Dependencies for the OpenCV + MediaPipe tracking mini-project.
+#
+# Install into a virtual environment (Python 3.12):
+#   python -m venv .venv
+#   .venv\Scripts\python.exe -m pip install -r requirements.txt   (Windows)
+#   .venv/bin/python -m pip install -r requirements.txt           (macOS/Linux)
+#
+# These are the only direct dependencies. Everything else (numpy's and
+# mediapipe's own requirements such as jax, matplotlib, protobuf, etc.) is
+# pulled in automatically.
+#
+# IMPORTANT: mediapipe is pinned to 0.10.21 on purpose. Every script here uses
+# the legacy `mp.solutions` API (face_mesh, hands, selfie_segmentation,
+# drawing_utils). MediaPipe removed that API in 0.10.30+, so a newer release
+# raises "module 'mediapipe' has no attribute 'solutions'". Do not unpin it
+# without migrating the code to the MediaPipe Tasks API.
+#
+# Use opencv-contrib-python (not opencv-python). MediaPipe installs it already,
+# and having both OpenCV distributions in the same environment causes cv2
+# conflicts.
+
+mediapipe==0.10.21
+opencv-contrib-python==4.11.0.86
+numpy==1.26.4
